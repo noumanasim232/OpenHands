@@ -66,6 +66,25 @@ def test_resolve_path():
     )
 
 
+codex/add-tests-for-read-lines-function-awyb1q
+def test_read_lines_final_segments():
+    lines = [f"line {i}\n" for i in range(5)]
+
+    # Request the last line using different end values
+    assert files.read_lines(lines, start=4) == ["line 4\n"]
+    assert files.read_lines(lines, start=4, end=-1) == ["line 4\n"]
+    assert files.read_lines(lines, start=4, end=5) == ["line 4\n"]
+    assert files.read_lines(lines, start=4, end=10) == ["line 4\n"]
+
+    # Reading the last two lines explicitly
+    assert files.read_lines(lines, start=3, end=5) == ["line 3\n", "line 4\n"]
+
+    # If start is beyond the end of the list, an empty list is returned
+    assert files.read_lines(lines, start=len(lines)) == []
+
+
+
+main
 def test_read_lines_eof_exact_end():
     lines = ['1\n', '2\n', '3\n']
     assert files.read_lines(lines, start=2, end=3) == ['3\n']
