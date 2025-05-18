@@ -55,7 +55,7 @@ Here is a list of available Actions, which can be returned by `agent.step()`:
 - [`ModifyTaskAction`](../events/action/tasks.py) - Changes the state of a subtask.
 - [`AgentFinishAction`](../events/action/agent.py) - Stops the control loop, allowing the user/delegator agent to enter a new task
 - [`AgentRejectAction`](../events/action/agent.py) - Stops the control loop, allowing the user/delegator agent to enter a new task
-- [`AgentFinishAction`](../events/action/agent.py) - Stops the control loop, allowing the user to enter a new task
+- [`AgentDelegateAction`](../events/action/agent.py) - Delegates the current task to another agent for assistance
 - [`MessageAction`](../events/action/message.py) - Represents a message from an agent or the user
 
 To serialize and deserialize an action, you can use:
