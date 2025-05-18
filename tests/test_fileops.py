@@ -64,3 +64,13 @@ def test_resolve_path():
         files.resolve_path('test.txt', '/workspace/test', HOST_PATH, CONTAINER_PATH)
         == Path(HOST_PATH) / 'test' / 'test.txt'
     )
+
+
+def test_read_lines_eof_exact_end():
+    lines = ['1\n', '2\n', '3\n']
+    assert files.read_lines(lines, start=2, end=3) == ['3\n']
+
+
+def test_read_lines_eof_overflow_end():
+    lines = ['1\n', '2\n', '3\n']
+    assert files.read_lines(lines, start=2, end=10) == ['3\n']
