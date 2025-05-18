@@ -66,6 +66,7 @@ def test_resolve_path():
     )
 
 
+codex/add-tests-for-read-lines-function-awyb1q
 def test_read_lines_final_segments():
     lines = [f"line {i}\n" for i in range(5)]
 
@@ -82,6 +83,8 @@ def test_read_lines_final_segments():
     assert files.read_lines(lines, start=len(lines)) == []
 
 
+
+main
 def test_read_lines_eof_exact_end():
     lines = ['1\n', '2\n', '3\n']
     assert files.read_lines(lines, start=2, end=3) == ['3\n']
