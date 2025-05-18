@@ -52,20 +52,11 @@ def resolve_path(
 
 
 def read_lines(all_lines: list[str], start: int = 0, end: int = -1) -> list[str]:
-    start = max(start, 0)
-    start = min(start, len(all_lines))
-    end = -1 if end == -1 else max(end, 0)
-    end = min(end, len(all_lines))
-    if end == -1:
-        if start == 0:
-            return all_lines
-        else:
-            return all_lines[start:]
-    else:
-        num_lines = len(all_lines)
-        begin = max(0, min(start, num_lines - 2))
-        end = -1 if end > num_lines else max(begin + 1, end)
-        return all_lines[begin:end]
+    """Return lines from ``start`` to ``end`` (0-indexed, ``end`` exclusive)."""
+
+    start = max(0, min(start, len(all_lines)))
+    end = len(all_lines) if end == -1 else max(0, min(end, len(all_lines)))
+    return all_lines[start:end]
 
 
 async def read_file(
