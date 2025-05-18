@@ -174,7 +174,7 @@ class State:
         state = self.__dict__.copy()
         state['history'] = []
 
-        # Remove any view caching attributes. They'll be rebuilt frmo the
+        # Remove any view caching attributes. They'll be rebuilt from the
         # history after that gets reloaded.
         state.pop('_history_checksum', None)
         state.pop('_view', None)
